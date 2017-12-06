@@ -14,18 +14,36 @@
 
         <p id="myP" >{{myString}}</p>
 
+        <ul><li v-for="name in myArr" v-text="name"></li></ul>
+
+        <input type="text" id="input"> <button id="button">Add Name</button>
+
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.js"></script>
 
     <script>
+
     
-    new Vue({
+    var app = new Vue({
         el: '#myDiv',
         data: {
-            myString: 'Hello Me'
+            myString: 'Hello Me',
+            myName: 'Mark',
+            myArr: ['Edward', 'Alphonse', 'Mustang', 'Alex']
+        },
+        mounted(){
+            document.querySelector('#button').addEventListener('click', () => {
+            let name = document.querySelector('#input');
+
+            app.myArr.push(name.value);
+
+            name.value = '';
+    } )
         }
     })
+
+    
     
     </script>
 
