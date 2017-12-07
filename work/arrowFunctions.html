@@ -11,11 +11,25 @@
     <div id="app"></div>
 
     <script>
-    
-        let arr = [true, 'dog', true, 54, 'cat', false];
 
-        let filtArr = arr.filter((event) => typeof(event) === 'boolean')
+        const myArr = [
+            {name: 'Joe Rogan', age: 50, strength: 6},
+            {name: 'Bruce Lee', age: 32, strength: 8},
+            {name: 'Brock Lesnar', age: 40, strength: 9},
+            {name: 'Donald Trump', age: 70, strength: 3},
+            {name: 'Kate Winslet', age: 42, strength: 2}
+        ]
+    
+        const arr = [true, 'dog', true, 54, 'cat', false];
+
+        let filtArr = arr.filter(event => typeof(event) === 'boolean');
         console.log(filtArr);
+
+        const filtMyArr = myArr
+            .filter(event => event.strength > 5)
+            .filter(event => event.age < 50);
+
+            console.log('Fighting Age: ' + filtMyArr.map(event => ' ' + event.name ));
     
     </script>
     
