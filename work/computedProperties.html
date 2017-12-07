@@ -7,6 +7,18 @@
     <title>Document</title>
     <style>
     
+    .blockDiv{
+        
+    }
+
+    ul{
+        display: inline-block;
+    }
+
+    button{
+        margin-left: 20px;
+    }
+    
     </style>
 </head>
 <body>
@@ -14,21 +26,29 @@
     <div id="root">
         <h1>{{reversedMessage}}</h1>
 
-        <div :class="{{ listDiv }}">
+        <div :class="listDiv">
             <h2>All Tasks</h2>
             <ul>
-                <li v-for="task in tasks" v-text="task.description" ></li>
+                <li v-for="task in tasks" >
+                        {{task.description}}
+                        <button @click="changeCompletion(task.num)" v-if="task.completed">Complete</button>
+                        <button @click="changeCompletion(task.num)" v-if="!task.completed">Incomplete</button>
+                </li>
                 
             </ul>
         </div>
-        <h2>Incomplete Tasks</h2>
-        <ul>
-            <li v-for="task in incompleteTasks"  v-text="task.description"></li>
-        </ul>
-        <h2>Complete Tasks</h2>
-        <ul>
-            <li v-for="task in completeTasks"  v-text="task.description"></li>
-        </ul>
+        <div :class="listDiv">
+            <h2>Incomplete Tasks</h2>
+            <ul>
+                <li v-for="task in incompleteTasks"  v-text="task.description"></li>
+            </ul>
+        </div>
+        <div :class="listDiv">
+            <h2>Complete Tasks</h2>
+            <ul>
+                <li v-for="task in completeTasks"  v-text="task.description"></li>
+            </ul>
+        </div>
 
     </div>
 
@@ -41,15 +61,25 @@
             el: '#root',
             data: {
                 message: 'Hello World',
+                buttonVal: 'Finished',
+                
                 tasks: [
-                    {description: 'Go to the store', completed: true},
-                    {description: 'Finish screencast', completed: false},
-                    {description: 'Make Donation', completed: false},
-                    {description: 'Clear inbox', completed: false},
-                    {description: 'Make dinner', completed: false},
-                    {description: 'Clean room', completed: true}
+                    {description: 'Go to the store', completed: true, num:0},
+                    {description: 'Finish screencast', completed: false, num:1},
+                    {description: 'Make Donation', completed: false, num:2},
+                    {description: 'Clear inbox', completed: false, num:3},
+                    {description: 'Make dinner', completed: false, num:4},
+                    {description: 'Clean room', completed: true, num:5}
                 ],
-                listDiv = 'blockList'
+                listDiv: 'blockDiv'
+            },
+
+            methods: {
+                changeCompletion(val){
+                     
+                     this.tasks[val].completed = !this.tasks[val].completed;
+                     console.log(val);
+                }
             },
 
             computed: {
