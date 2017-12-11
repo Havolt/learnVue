@@ -1,3 +1,35 @@
+Vue.component('message', {
+    props: ['title', 'body'],
+
+    data(){
+        return{
+            isVisible: true
+        }
+    },
+
+    template: `
+    
+    <article class="message" v-show="isVisible">
+        <div class="message-header">
+            {{ title }}
+            <button @click="isVisible=false" class="close">x</span></button>
+        </div>
+
+        <div class="message-body">
+            {{ body }}
+        </div>
+    </article>`
+
+    ,
+
+    methods: {
+        
+    }
+})
+
+
+
+
 Vue.component('task-list', {
     template: '<div><task v-for="task in tasks" :key="task.id">{{ task.task}}</task></div>',
 
