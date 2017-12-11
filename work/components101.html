@@ -20,13 +20,21 @@
 
         <br></br>
 
-        -->
+        
 
         <message title="Hello World" body="Lorem ipsum dolar sit amet."></message>
 
         <message title="Hello Universe" body="The water in the arctic areas is the cleanest in the world"></message>
 
+        -->
+
         
+
+        <modal v-if="showModal" @close="showModal = false">
+            <p>Any text goes here</p>
+        </modal>
+
+        <button @click="showModal=true" >Show Modal</button>
 
 
     </div>
