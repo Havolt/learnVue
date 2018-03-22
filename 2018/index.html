@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learning Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    
+</head>
+<body>
+    
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <div id="app-2">
+        <span v-bind:title="message">
+            Hover your mouse over me for a message.
+        </span>
+    </div>
+
+
+    
+
+    <script>
+
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+        message: 'Hello Vue! '
+        }
+    })
+
+    let app2 = new Vue({
+        el: '#app-2',
+        data: {
+            message: 'Hello there, you loaded this page on ' + new Date().toLocaleString()
+        }
+    })
+
+
+    </script>
+
+</body>
+</html>
