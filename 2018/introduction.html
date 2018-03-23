@@ -37,6 +37,21 @@
         <button v-on:click="reverseMessage">Reverse Message</button>
     </div>
 
+    <div id="app-6">
+        <p>{{ myMessage }}</p>
+        <input v-model="myMessage">
+    </div>
+
+    <div id="app-7">
+        <ol>
+            <todo-item
+            v-for="item in groceryList"
+            v-bind:todo="item"
+            v-bind:key="item.id">
+            </todo-item>
+        </ol>
+    </div>
+
 
     
 
@@ -86,6 +101,29 @@
             }
         }
     })
+
+    let app6 = new Vue({
+        el: '#app-6',
+        data: {
+            myMessage: 'Hello World!'
+        }
+    })
+
+    Vue.component('todo-item', {
+        props: ['todo'],
+        template: '<li>{{ todo.text }}</li>'
+    })
+
+    let app7 = new Vue({
+        el: '#app-7',
+        data: {
+            groceryList: [
+                {id : 0, text: 'Curry'},
+                {id: 1, text: 'Chicken'},
+                {id: 2, text: 'Cheese'}
+            ]
+        }
+    })    
     
 
     </script>
