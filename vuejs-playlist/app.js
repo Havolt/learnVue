@@ -83,6 +83,7 @@ new Vue({
     }
 })*/
 
+/*
 new Vue({
     el: '#vue-app5',
     data: {
@@ -98,4 +99,14 @@ new Vue({
             }
         }
     }
+})*/
+
+new Vue({
+    el: '#vue-app6',
+    data: {
+        error: false,
+        success: false
+    },
+    methods: {},
+    computed: {}
 })
