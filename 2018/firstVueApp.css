@@ -1,0 +1,34 @@
+.colorBoxContent{
+    width: 40px;
+    height:40px;
+    border: 1px solid #444;
+   
+    display: inline-block
+}
+
+.colorBoxRed{
+    background: red;
+}
+
+.colorBoxBlue{
+    background: blue;
+}
+
+.colorBoxGreen{
+    background: green;
+}
+
+.colorBoxPurple{
+    background: purple;
+}
+
+.inlineBox{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.outputSec{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}

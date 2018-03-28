@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>First Vue App</title>
+    <link rel="stylesheet" href="firstVueApp.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="vue-app">
+        <div class="inputSec">
+            <div>
+                <h2>First Name: </h2>
+                <input type="text" v-model:value="firstName">
+            </div>
+            <div>
+                <h2>Surname: </h2>
+                <input type="text" v-model:value="lastName">
+            </div>
+            <div>
+                <h2>Age: </h2>
+                <input type="text" v-model:value="age">
+            </div>
+            <div>
+                <h2>Color: </h2>
+                <div v-on:click="changeCol(), colGreen = true" class="colorBoxGreen colorBoxContent "></div>
+                <div v-on:click="changeCol(), colPurple = true" class="colorBoxPurple colorBoxContent "></div>
+                <div v-on:click="changeCol(), colRed = true" class="colorBoxRed colorBoxContent "></div>
+                <div v-on:click="changeCol(), colBlue = true" class="colorBoxBlue colorBoxContent "></div>
+            </div>
+        </div>
+
+        <br />
+        <br />
+        <br />
+        <div class="outputSec">
+            <div>
+                <h1>Form for {{firstName + ' '+ lastName}}</h1>
+            </div>
+            <div>
+                <h2>I hearby declare that I am {{age}} years old.</h2>
+            </div>
+            <div>
+                <h2 class="inlineBox">My favourite color is: </h2><div v-bind:class="colorClass"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="firstVueApp.js"></script>
+    
+</body>
+</html>
