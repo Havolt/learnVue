@@ -53,6 +53,7 @@ new Vue({
     }
 })*/
 
+/*
 new Vue({
     el: '#vue-app4',
     data: {
@@ -61,14 +62,14 @@ new Vue({
         b: 0
     },
     methods: {
-        /*addToA: function(){
-            console.log("c'est A")
-            return this.a + this.age;
+        //addToA: function(){
+            //console.log("c'est A")
+            //return this.a + this.age;
         },
-        addToB: function(){
-            console.log("c'est B")
-            return this.b + this.age;
-        }*/
+        //addToB: function(){
+            //console.log("c'est B")
+            //return this.b + this.age;
+        //}
     },
     computed: {
         addToA: function(){
@@ -78,6 +79,23 @@ new Vue({
         addToB: function(){
             console.log("c'est B")
             return this.b + this.age;
+        }
+    }
+})*/
+
+new Vue({
+    el: '#vue-app5',
+    data: {
+        available: false,
+        nearby: false
+    },
+    methods: {},
+    computed: {
+        compClasses: function(){
+            return {
+                available: this.available,
+                nearby: this.nearby
+            }
         }
     }
 })
