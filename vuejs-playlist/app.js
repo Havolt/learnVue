@@ -1,3 +1,4 @@
+/*
 new Vue({
     el: '#vue-app',
     data: {
@@ -9,6 +10,24 @@ new Vue({
     methods: {
         greet: function(time){
             return 'Good ' + time + ' ' + this.name; 
+        }
+    }
+})*/
+
+new Vue({
+    el: '#vue-app2',
+    data: {
+        age: 27,
+        x: 0,
+        y: 0
+    },
+    methods: {
+        changeYear: function(num){
+            this.age += num
+        },
+        updateXY: function(event){
+            this.x = event.offsetX;
+            this.y = event.offsetY;
         }
     }
 })
