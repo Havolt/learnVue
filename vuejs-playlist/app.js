@@ -14,6 +14,7 @@ new Vue({
     }
 })*/
 
+/*
 new Vue({
     el: '#vue-app2',
     data: {
@@ -31,6 +32,21 @@ new Vue({
         },
         clicker: function(){
             alert('You clicked me');
+        }
+    }
+})*/
+
+new Vue({
+    el: '#vue-app3',
+    data: {
+
+    },
+    methods: {
+        logName: function(){
+            console.log('You entered you name');
+        },
+        logAge: function(){
+            console.log('You entered you age');
         }
     }
 })
