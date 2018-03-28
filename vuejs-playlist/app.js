@@ -36,10 +36,12 @@ new Vue({
     }
 })*/
 
+/*
 new Vue({
     el: '#vue-app3',
     data: {
-
+        name: '',
+        age: ''
     },
     methods: {
         logName: function(){
@@ -47,6 +49,35 @@ new Vue({
         },
         logAge: function(){
             console.log('You entered you age');
+        }
+    }
+})*/
+
+new Vue({
+    el: '#vue-app4',
+    data: {
+        age: 20,
+        a: 0, 
+        b: 0
+    },
+    methods: {
+        /*addToA: function(){
+            console.log("c'est A")
+            return this.a + this.age;
+        },
+        addToB: function(){
+            console.log("c'est B")
+            return this.b + this.age;
+        }*/
+    },
+    computed: {
+        addToA: function(){
+            console.log("c'est A")
+            return this.a + this.age;
+        },
+        addToB: function(){
+            console.log("c'est B")
+            return this.b + this.age;
         }
     }
 })
