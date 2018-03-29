@@ -100,7 +100,7 @@ new Vue({
         }
     }
 })*/
-
+/*
 new Vue({
     el: '#vue-app6',
     data: {
@@ -108,5 +108,21 @@ new Vue({
         success: false
     },
     methods: {},
+    computed: {}
+})*/
+
+new Vue({
+    el: '#vue-app7',
+    data: {
+        characters: ['Mario', 'Luigi', 'Yoshi', 'Bowser'],
+        ninjas: [
+            {name: 'Naruto', age : 17},
+            {name: 'Kakashi', age: 32},
+            {name: 'Jiraiya', age: 64}
+        ]
+    },
+    methods: {
+
+    },
     computed: {}
 })
