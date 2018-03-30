@@ -1,4 +1,5 @@
-
+//Multiple Vue Instances
+/*
 let one = new Vue({
     el: '#vue-app-one',
     data:{
@@ -11,7 +12,6 @@ let one = new Vue({
         }
     }
 })
-
 let two = new Vue({
     el: '#vue-app-two',
     data:{
@@ -28,6 +28,28 @@ let two = new Vue({
         }
     }
 })
+two.title = 'Changed from outside';
+*/
 
+//Components
+Vue.component('greeting', {
+    template: '<p>Hey there, {{ name }}. <button v-on:click="changeName">Change name</button></p>',
+    data: function(){
+        return {
+            name: 'Waluigi'
+        }
+    },
+    methods: {
+        changeName: function(){
+            this.name = 'Mario';
+        }
+    }
+})
 
-two.title = 'Changed from outside'
+new Vue({
+    el: '#vue-app-one'
+});
+
+new Vue({
+    el: '#vue-app-two'
+});
