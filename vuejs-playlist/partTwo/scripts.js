@@ -32,6 +32,7 @@ two.title = 'Changed from outside';
 */
 
 //Components
+/*
 Vue.component('greeting', {
     template: '<p>Hey there, {{ name }}. <button v-on:click="changeName">Change name</button></p>',
     data: function(){
@@ -45,11 +46,26 @@ Vue.component('greeting', {
         }
     }
 })
-
 new Vue({
     el: '#vue-app-one'
 });
-
 new Vue({
     el: '#vue-app-two'
-});
+});*/
+
+//Refs
+new Vue({
+    el: '#vue-app-three',
+    data: {
+        output: 'Eggs'
+    },
+    methods: {
+        readRefs: function() {
+            console.log(this.$refs.test.innerText);
+            this.output = this.$refs.input.value;
+        }
+    },
+    computed: {
+        
+    }
+})

@@ -22,16 +22,23 @@
         <button v-on:click="changeTitle">Change app one title</button>
     </div>-->
 
+    <!--
     <h1>Components</h1>
-
     <div id="vue-app-one">
         <h2>Vue app one</h2>
         <greeting></greeting>
     </div>
-
     <div id="vue-app-two">
         <h2>Vue app two</h2>
         <greeting></greeting>
+    </div>-->
+
+    <div id="vue-app-three">
+        <h2>Refs</h2>
+        <input type="text" ref="input">
+        <button v-on:click="readRefs">Submit</button>
+        <p>Your Fave Food : {{ output }}</p>
+        <div ref="test">Hello</div>
     </div>
 
     
