@@ -16,6 +16,8 @@
         <input type="text" v-model="myWord" >
 
         <ul><li v-for="word in arrOfWords">{{ word }}</li></ul>
+
+        <button v-on:click="func">Click me</button>
     </div>
 
 
@@ -27,7 +29,13 @@
             myWord: 'dream',
             arrOfWords : ['dog', 'cat', 'bear', 'rabbit']
         },
-        methods: {}
+        methods: {
+            func : function(){
+                console.log(this.myWord)
+                this.arrOfWords.push(this.myWord);
+                this.myWord = '';
+            }
+        }
     })
     
     </script>
