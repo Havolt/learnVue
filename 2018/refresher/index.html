@@ -9,7 +9,14 @@
 </head>
 <body>
 
-    <div id="app">{{ myWord }}</div>
+    <div id="app" >
+        <div v-text="myWord"></div>
+        <div v-text="myWord"></div>
+        
+        <input type="text" v-model="myWord" >
+
+        <ul><li v-for="word in arrOfWords">{{ word }}</li></ul>
+    </div>
 
 
     <script>
@@ -17,7 +24,8 @@
     let dream = new Vue({
         el: '#app',
         data: {
-            myWord: 'dream'
+            myWord: 'dream',
+            arrOfWords : ['dog', 'cat', 'bear', 'rabbit']
         },
         methods: {}
     })
