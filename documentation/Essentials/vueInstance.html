@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Vue Instance</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+
+    <div id="app">
+        <p>{{ foo }}</p>
+        <button v-on:click="foo = 'baz'">Change it!</button>
+    </div>
+
+    <script>
+
+        let data = {a: 1};
+    
+    let vm = new Vue({
+        data: data
+    })
+
+    console.log(vm.a == data.a);
+    vm.a = 5;
+    console.log(data.a);
+    data.a = 3;
+    console.log(vm.a);
+
+
+    let obj = {
+        foo: 'bar'
+    }
+
+    Object.freeze(obj);
+
+    let vm2 = new Vue({
+        el: '#app',
+        data: obj
+    })
+
+    console.log(vm2.$data === obj);
+    console.log(vm2.$el === document.getElementById('app'));
+    
+    new Vue({
+        data: {
+            a: 1
+        },
+        created: function(){
+            console.log('a is: ' + this.a)
+        }
+    })
+    
+    </script>
+    
+</body>
+</html>
