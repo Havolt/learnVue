@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Introduction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+
+    <div id="app">{{ message }}</div>
+    <br>
+    <div id="app2">
+        <span v-bind:title="message">Hover your mouse over me</span>
+    </div>
+    <br>
+    <div id="app3">
+        <span v-if="seen">Now you see me</span>
+    </div>
+    <br>
+    <div id="app4">
+        <ol>
+            <li v-for="todo in todos">{{ todo.text }}</li>
+        </ol>
+    </div>
+    <br>
+    <div id="app5">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+    <br>
+    <div id="app6">
+        <p>{{ message }}</p>
+        <input type="text" v-model="message">
+    </div>
+    <div id="app7">
+        <ol>
+            <todo-item
+                v-for="item in groceryList"
+                v-bind:todo="item"
+                v-bind:key="item.id">
+            </todo-item>
+        </ol>
+    </div>
+
+    <script>
+    
+    let app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Change me!'
+        }
+    })
+
+    let app2 = new Vue({
+        el: '#app2',
+        data: {
+            message: 'You loaded this page on ' + new Date().toLocaleString()
+        } 
+    })
+
+    let app3 = new Vue({
+        el: '#app3',
+        data: {
+            seen: true
+        }
+    })
+
+    let app4 = new Vue({
+        el: '#app4',
+        data: {
+            todos: [
+                {text: 'Hello there'},
+                {text: 'I\'m a message'},
+                {text: 'Bring it'}
+                ]
+        }
+    })
+
+    let app5 = new Vue({
+        el: '#app5', 
+        data: {
+            message: 'Hello Vue.js!'
+        },
+        methods: {
+            reverseMessage: function(){
+                this.message = this.message.split('').reverse().join('');
+            }
+        }
+    })
+
+    let app6 = new Vue({
+        el: '#app6',
+        data: {
+            message: 'Hello Vue User!'
+        }
+    })
+
+    Vue.component('todo-item', {
+
+        props: ['todo'],
+        template: '<li>{{ todo.text }}</li>'
+    })
+
+    let app7 = new Vue({
+        el: '#app7',
+        data: {
+            groceryList: [
+                {id: 0, text: 'Vegetables'},
+                {id: 1, text: 'Fruit'},
+                {id: 2, text: 'Beautiful Starch'}
+            ]
+        }
+    })
+    
+    </script>
+    
+</body>
+</html>
