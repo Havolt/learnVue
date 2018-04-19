@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Template Syntax</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+
+    <div id="app">
+        <p>Using mustaches: {{ html }}</p>
+        <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+        <div v-bind:id="dynamicId"></div>
+        <div>{{ number + 5 }}</div>
+        <br>
+        <div>{{ isTrue ? 'It is true' : 'It is not true' }}</div>
+        <br>
+        <a v-bind:href="url">Yahoo</a>
+        <br><br>
+        <button v-on:click="alertMe">Display alert message</button>
+        <br><br>
+        <a :href="url">Shorthand bind</a>
+        <br><br>
+        <button @click="alertMe">Shorthand click</button>
+    </div>
+
+    <script>
+    
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            message: 'Arthas',
+            rawHtml: '<span style="color:red">This should be red </span>',
+            dynamicId: 'doopdoo',
+            number : 5,
+            isTrue : true,
+            url: 'http://www.yahoo.com'
+        },
+        methods: {
+            alertMe: function(){
+                alert('Thanks for testing me');
+            }
+        }
+    })
+    
+    </script>
+    
+</body>
+</html>
