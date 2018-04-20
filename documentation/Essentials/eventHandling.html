@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event Handling</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+
+    <div id="ex1">
+        <button v-on:click="counter++">Click me</button>
+        <p>The button has been clicked {{ counter }} times</p>
+    </div>
+
+    <div id="ex2">
+        <button v-on:click="greet">Greet</button>
+    </div>
+    <br>
+
+    <div id="ex3">
+        <button @click="say('hi', $event)">Say hi</button>
+        <button @click="say('bye', $event)">Say bye</button>
+        <input  v-on:keydown.enter="logger" type="text" v-model="submitMessage">
+    </div>
+
+
+    <script>
+    
+    vm = new Vue({
+        el: '#ex1',
+        data: {
+            counter : 0
+        }
+    })
+
+    vm2 = new Vue({
+        el: '#ex2',
+        data: {
+            name: 'John Travolta'
+        },
+        methods: {
+            greet: function(event){
+                alert('Hello ' + this.name + '!')
+                if(event){
+                    alert(event.target.tagName);
+                }
+            }
+        }
+    })
+
+    vm3 = new Vue({
+        el: '#ex3',
+        data: {
+            submitMessage: 'Temp'
+        },
+        methods: {
+            say: function(message, event){
+                alert(message);
+                if(event){console.log(event)}
+            },
+            logger: function(){
+                console.log(this.submitMessage);
+            }
+        }
+    })
+    
+    </script>
+    
+</body>
+</html>
