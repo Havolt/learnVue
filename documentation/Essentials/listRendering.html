@@ -10,13 +10,13 @@
 <body>
 
 
-    <div id="example-1">
+    <div id="example1">
         <ul>
             <li v-for="item in items">{{ item.message }}</li>
         </ul>
     </div>
 
-    <div id="example-2">
+    <div id="example2">
         <li v-for="(item, index) in items">
             {{ parentMessage}} - {{ index }} - {{ item.message }}
         </li>
@@ -26,6 +26,15 @@
     <div id="v-for-object">
         <li v-for="(value, key, index) in object">{{index }}. {{ key }} - {{ value }} </li>
     </div>
+    <br>
+
+    <div id="filtered">
+        <li v-for="n in evenNumbers">{{ n }}</li>
+        <br>
+        <span v-for="n in 10">{{ n }}</span>
+    </div>
+
+
 
 
 
@@ -33,17 +42,30 @@
     <script>
     
     let vm = new Vue({
-        el: '#example-1',
+        el: '#example1',
         data: {
             items: [
                 {message: 'Elvis lives'},
                 {message: 'In our hearts'}
-            ]
+            ],
+            itemz: ['a', 'b', 'c'],
+            userProfile: {
+                name: 'Akira'
+            }
         }
     })
 
+    vm.$set(vm.itemz, 1, 'z');
+    console.log(vm.itemz);
+
+    vm.$set(vm.userProfile, 'age', '19');
+    console.log(vm.userProfile);
+
+    vm.userProfile = Object.assign({}, vm.userProfile, {age: 20, favColor : 'Sky Blue'});
+    console.log(vm.userProfile);
+
     let vm2 = new Vue({
-        el: '#example-2',
+        el: '#example2',
         data: {
             parentMessage: 'Parent',
             items: [
@@ -60,6 +82,20 @@
                 firstName: 'Mark',
                 lastName: 'Fitz',
                 age: 402
+            }
+        }
+    })
+
+    let vm4 = new Vue({
+        el: '#filtered',
+        data: {
+            numbers: [1,2,3,4,5,6]
+        },
+        computed: {
+            evenNumbers: function(){
+                return this.numbers.filter(function(number){
+                    return number % 2 === 0
+                })
             }
         }
     })
