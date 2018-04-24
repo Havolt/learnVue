@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form Input Bindings</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+
+    <div id="app">
+        <input type="text" v-model="message" placeholder="Write here">
+        <div>You wrote: {{ message }}</div>
+        <br>
+
+        <span>Multiple message is: </span>
+        <p style="white-space: pre-line;">{{ multiMessage }}</p>
+        <br>
+        <textarea name="" id="" v-model="multiMessage" placeholder="add multiple lines"></textarea>
+        <br>
+
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+        <br><br>
+
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br>
+        <span>Checked names: {{ checkedNames }}</span>
+        <br><br>
+
+        <input type="radio" id="one" value="One" v-model="picked">
+        <label for="one">One</label><br>
+        <input type="radio" id="two" value="Two" v-model="picked">
+        <label for="two">Two</label><br>
+        <span>Picked: {{ picked }}</span>
+        <br><br>
+
+        <select v-model="selected">
+            <option disabled value="">Please select one</option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+        <br><br>
+
+
+        <select v-model="selected2">
+            <option v-for="option in options" v-bind:value="option.value">
+                {{ option.text }}
+            </option>
+        </select>
+        <span>Selected: {{ selected2 }} </span>
+    </div>
+
+
+
+    <script>
+    
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            message: '',
+            multiMessage: 'Your multiline message:',
+            checked: false,
+            checkedNames: [],
+            picked: '',
+            selected: '', 
+            selected2: 'A',
+            options: [
+                { text: 'One', value: 'A'},
+                { text: 'Two', value: 'B'},
+                { text: 'Three', value: 'C'}
+            ]
+        }
+    })
+    
+    </script>
+    
+</body>
+</html>
